@@ -1,11 +1,16 @@
 <script>
-import { store } from "../store";
 
 export default {
     data() {
         return {
-            store,
+            searchBar: "",
     }
+    },
+    methods: {
+        emitSearchBar() {
+            this.$emit("performSearch", this.searchBar)
+            this.searchBar = "";
+        }
     }
 }
 </script>
@@ -16,8 +21,8 @@ export default {
         <h1>BOOLFLIX</h1>
     </div>
     <div class="search-bar">
-        <input type="text" placeholder="Search" v-model="store.searchMovies">
-        <button> Cerca </button>
+        <input type="text" placeholder="Search" v-model="searchBar" @keyup.enter="emitSearchBar">
+        <button @click="emitSearchBar"> Cerca </button>
     </div>
   </nav>
 </template>
