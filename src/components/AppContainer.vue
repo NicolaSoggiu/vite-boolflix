@@ -60,7 +60,7 @@ export default {
     </div>
     <div v-if="store.loading">Loading...</div>
     <div v-else>
-      <div>
+      <div class="films">
         <AppMovieSeries
           v-for="movies in store.arrMovies"
           :key="movies.id"
@@ -73,7 +73,7 @@ export default {
       </div>
 
       <!-- SERIES -->
-      <div>
+      <div class="tvShows">
         <AppMovieSeries
           v-for="show in store.arrShows"
           :key="show.id"
@@ -93,5 +93,15 @@ main {
   width: 100%;
   max-height: fit-content;
   background-color: grey;
+  .films {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+  .tvShows {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+  }
 }
 </style>
