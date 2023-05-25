@@ -79,6 +79,7 @@ export default {
 
 .card {
   margin: 50px auto;
+  min-width: 300px;
   height: 426px;
   font-weight: bold;
   background-color: black;
