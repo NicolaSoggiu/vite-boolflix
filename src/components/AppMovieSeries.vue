@@ -29,7 +29,7 @@ export default {
 
 <template>
   <div class="card">
-    <div class="ciao"></div>
+    <div class="empty"></div>
     <img
       class="poster"
       :src="`http://image.tmdb.org/t/p/w342${image}`"
@@ -79,7 +79,7 @@ export default {
   position: relative;
   &:hover {
     box-shadow: none;
-    .ciao {
+    .empty {
       position: absolute;
       left: 0;
       top: 0;
@@ -109,6 +109,4 @@ export default {
 .star {
   color: yellow;
 }
-
-// HOVER
 </style>
