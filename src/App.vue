@@ -23,7 +23,6 @@ export default {
           params: {
             api_key: "93758f38a9c78d2bf40d678cf8116242",
             query: data,
-            page: 1,
           },
         })
         .then((response) => {
@@ -34,9 +33,11 @@ export default {
               originalTitle: result?.original_title,
               language: result?.original_language,
               voto: result?.vote_average,
+              image: result?.poster_path,
             };
           });
           this.store.arrMovies = filmData;
+          console.log(filmData);
         })
         .catch((error) => {
           this.store.errorMessage = error.message;
@@ -47,7 +48,6 @@ export default {
           params: {
             api_key: "93758f38a9c78d2bf40d678cf8116242",
             query: data,
-            page: 1,
           },
         })
         .then((response) => {
@@ -60,6 +60,7 @@ export default {
                 : result.original_name,
               language: result?.original_language,
               voto: result?.vote_average,
+              image: result?.poster_path,
             };
           });
           this.store.arrShows = ShowData;

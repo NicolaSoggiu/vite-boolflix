@@ -67,6 +67,7 @@ export default {
           :originalTitle="movies?.originalTitle"
           :language="movies.language"
           :voto="movies.voto"
+          :image="movies.image"
         />
       </div>
 
@@ -79,6 +80,7 @@ export default {
           :originalTitle="show?.originalTitle"
           :language="show.language"
           :voto="show.voto"
+          :image="show.posterPath"
         />
       </div>
     </div>
@@ -88,7 +90,7 @@ export default {
 <style lang="scss" scoped>
 main {
   width: 100%;
-  height: 90vh;
+  max-height: fit-content;
   background-color: grey;
 }
 </style>
