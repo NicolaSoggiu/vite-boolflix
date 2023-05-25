@@ -12,7 +12,12 @@ export default {
     originalTitle: String,
     language: String,
     voto: Number,
-    image: String /*cambiare in Object?!*/,
+    image: String,
+  },
+  methods: {
+    rating() {
+      return Math.ceil((this.voto / 10) * 5);
+    },
   },
 };
 </script>
@@ -23,7 +28,21 @@ export default {
       <li>{{ title }}</li>
       <li>{{ originalTitle }}</li>
       <li>{{ language }}</li>
-      <li>{{ voto }}</li>
+      <span>VOTO: </span>
+      <font-awesome-icon
+        class="star"
+        v-for="star in rating(vote)"
+        :key="star"
+        :icon="['fas', 'star']"
+      />
+      <template v-for="star in 5 - rating(vote)">
+        <font-awesome-icon
+          class="star"
+          :key="star"
+          :icon="['far', 'star']"
+          v-if="rating(vote) < 5"
+        />
+      </template>
       <img :src="`http://image.tmdb.org/t/p/w342${image}`" :alt="image" />
     </ul>
   </div>
@@ -34,6 +53,9 @@ ul {
   padding: 2rem;
   .image {
     width: 500px;
+  }
+  .star {
+    color: yellow;
   }
 }
 </style>

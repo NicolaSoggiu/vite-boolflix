@@ -37,7 +37,6 @@ export default {
             };
           });
           this.store.arrMovies = filmData;
-          console.log(filmData);
         })
         .catch((error) => {
           this.store.errorMessage = error.message;

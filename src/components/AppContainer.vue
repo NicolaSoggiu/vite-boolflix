@@ -34,6 +34,7 @@ export default {
               originalTitle: result?.original_title,
               language: result?.original_language,
               voto: result?.vote_average,
+              image: result?.poster_path,
             };
           });
           this.store.arrMovies = filmData;
@@ -80,7 +81,7 @@ export default {
           :originalTitle="show?.originalTitle"
           :language="show.language"
           :voto="show.voto"
-          :image="show.posterPath"
+          :image="show.image"
         />
       </div>
     </div>
