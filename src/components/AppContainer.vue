@@ -56,6 +56,7 @@ export default {
 <template>
   <main>
     <!-- MOVIES -->
+    <h1 v-if="store.arrMovies.length > 0">Movies :</h1>
     <div class="error" v-if="store.errorMessage !== '' && !store.loading">
       {{ store.errorMessage }}
     </div>
@@ -75,6 +76,7 @@ export default {
       </div>
 
       <!-- SERIES -->
+      <h1 v-if="store.arrShows.length > 0">Tv Show :</h1>
       <div class="tvShows">
         <AppMovieSeries
           v-for="show in store.arrShows"
@@ -92,6 +94,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+h1 {
+  padding-left: 1rem;
+  padding-top: 2rem;
+}
+
 main {
   width: 100%;
   max-height: fit-content;

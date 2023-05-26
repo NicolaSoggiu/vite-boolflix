@@ -72,7 +72,6 @@ export default {
           this.store.loading = false;
         });
       this.store.loading = false;
-      console.log("store", this.store);
     },
   },
 };

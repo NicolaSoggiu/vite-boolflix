@@ -98,6 +98,7 @@ export default {
       position: absolute;
       left: 10px;
       top: 10px;
+      padding: 1rem;
     }
   }
   .poster {
