@@ -39,6 +39,9 @@ export default {
             };
           });
           this.store.arrMovies = filmData;
+          if (this.store.arrMovies.length == 0) {
+            this.store.errorMessage = "No content found with this name";
+          }
         })
         .catch((error) => {
           this.store.errorMessage = error.message;
@@ -66,6 +69,9 @@ export default {
             };
           });
           this.store.arrShows = ShowData;
+          if (this.store.arrShows.length == 0) {
+            this.store.errorMessage = "No content found with this name";
+          }
         })
         .catch((error) => {
           this.store.errorMessage = error.message;
