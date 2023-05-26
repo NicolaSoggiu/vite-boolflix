@@ -55,10 +55,10 @@ export default {
 <template>
   <main>
     <!-- MOVIES -->
-    <div v-if="store.errorMessage !== '' && !store.loading">
+    <div class="error" v-if="store.errorMessage !== '' && !store.loading">
       {{ store.errorMessage }}
     </div>
-    <div v-if="store.loading">Loading...</div>
+    <div class="loading" v-if="store.loading">Loading...</div>
     <div v-else>
       <div class="films">
         <AppMovieSeries
@@ -93,6 +93,16 @@ main {
   width: 100%;
   max-height: fit-content;
   background-color: grey;
+  .error {
+    text-align: center;
+    padding-top: 10rem;
+    font-size: 5rem;
+  }
+  .loading {
+    text-align: center;
+    padding-top: 10rem;
+    font-size: 5rem;
+  }
   .films {
     display: flex;
     flex-wrap: wrap;

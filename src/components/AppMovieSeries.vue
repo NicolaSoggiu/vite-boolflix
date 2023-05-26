@@ -9,7 +9,6 @@ export default {
     };
   },
   props: {
-    key: String,
     title: String,
     originalTitle: String,
     language: String,
@@ -31,10 +30,12 @@ export default {
   <div class="card">
     <div class="empty"></div>
     <img
+      v-if="image"
       class="poster"
       :src="`http://image.tmdb.org/t/p/w342${image}`"
       :alt="image"
     />
+    <div v-else class="poster default"></div>
     <div class="info">
       <div class="description">
         <span class="details">{{ title }}</span>
@@ -43,21 +44,23 @@ export default {
         <span class="details">{{ originalTitle }}</span>
       </div>
       <div class="description">
-        <span class="details"> <Lang-flag :iso="`${language}`" /> </span>
+        <span class="details">
+          <Lang-flag :iso="`${language}`" :squared="false" />
+        </span>
       </div>
-      <span>VOTO: </span>
+      <span>Rating: </span>
       <font-awesome-icon
         class="star"
-        v-for="star in rating(vote)"
+        v-for="star in rating()"
         :key="star"
         :icon="['fas', 'star']"
       />
-      <template v-for="star in 5 - rating(vote)">
+      <template v-for="star in 5 - rating()">
         <font-awesome-icon
           class="star"
           :key="star"
           :icon="['far', 'star']"
-          v-if="rating(vote) < 5"
+          v-if="rating() < 5"
         />
       </template>
     </div>
@@ -65,10 +68,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-// .ciao {
-//   display: none;
-// }
-
 .card {
   margin: 50px auto;
   min-width: 300px;
@@ -79,6 +78,7 @@ export default {
   position: relative;
   &:hover {
     box-shadow: none;
+    cursor: pointer;
     .empty {
       position: absolute;
       left: 0;
@@ -101,11 +101,13 @@ export default {
     height: 100%;
     object-fit: cover;
   }
+  .default {
+    background-image: url("../../public/img/netflix_3.webp");
+  }
   .info {
     display: none;
   }
 }
-
 .star {
   color: yellow;
 }
