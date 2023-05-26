@@ -35,6 +35,7 @@ export default {
               language: result?.original_language,
               voto: result?.vote_average,
               image: result?.poster_path,
+              overview: result?.overview,
             };
           });
           this.store.arrMovies = filmData;
@@ -61,6 +62,7 @@ export default {
               language: result?.original_language,
               voto: result?.vote_average,
               image: result?.poster_path,
+              overview: result?.overview,
             };
           });
           this.store.arrShows = ShowData;

@@ -35,6 +35,7 @@ export default {
               language: result?.original_language,
               voto: result?.vote_average,
               image: result?.poster_path,
+              overview: result?.overview,
             };
           });
           this.store.arrMovies = filmData;
@@ -69,6 +70,7 @@ export default {
           :language="movies.language"
           :voto="movies.voto"
           :image="movies.image"
+          :overview="movies.overview"
         />
       </div>
 
@@ -82,6 +84,7 @@ export default {
           :language="show.language"
           :voto="show.voto"
           :image="show.image"
+          :overview="show.overview"
         />
       </div>
     </div>
@@ -106,12 +109,10 @@ main {
   .films {
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
   }
   .tvShows {
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
   }
 }
 </style>

@@ -14,6 +14,7 @@ export default {
     language: String,
     voto: Number,
     image: String,
+    overview: String,
   },
   components: {
     LangFlag,
@@ -38,17 +39,17 @@ export default {
     <div v-else class="poster default"></div>
     <div class="info">
       <div class="description">
-        <span class="details">{{ title }}</span>
+        <span class="details">Title : {{ title }}</span>
       </div>
       <div class="description">
-        <span class="details">{{ originalTitle }}</span>
+        <span class="details">Original Title : {{ originalTitle }}</span>
       </div>
       <div class="description">
         <span class="details">
           <Lang-flag :iso="`${language}`" :squared="false" />
         </span>
       </div>
-      <span>Rating: </span>
+      <span>Vote: </span>
       <font-awesome-icon
         class="star"
         v-for="star in rating()"
@@ -63,6 +64,9 @@ export default {
           v-if="rating() < 5"
         />
       </template>
+      <div class="description">
+        <span class="details"> Overview : {{ overview }} </span>
+      </div>
     </div>
   </div>
 </template>
